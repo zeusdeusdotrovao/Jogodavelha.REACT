@@ -1,0 +1,139 @@
+/* --- Estilos Globais e Layout --- */
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f0f3f5; /* Fundo muito claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+/* --- Estilos do Tabuleiro e Status --- */
+
+.game-board {
+    margin-right: 40px;
+    /* Remove padding para que o tabuleiro comece na borda */
+    padding: 0; 
+}
+
+.status {
+    margin-bottom: 25px;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+    color: #1abc9c; 
+}
+
+/* Retorna ao layout 'float' ou 'flex' para grade coesa (sem gap) */
+.board-row {
+    display: flex; /* Usamos flex para garantir que os quadrados fiquem alinhados */
+}
+
+/* --- Estilos dos Quadrados (Square) --- */
+
+.square {
+    /* Cor de fundo base para a grade */
+    background: #ffffff;
+    
+    /* Apenas bordas finas e claras para separar as células */
+    border: 1px solid #e0e0e0; 
+    
+    height: 70px;
+    width: 70px;
+    
+    /* Centralização de conteúdo (X ou O) */
+    font-size: 38px;
+    font-weight: 800;
+    color: #34495e; 
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    
+    /* Removendo a sombra do quadrado individual */
+    box-shadow: none; 
+}
+
+/* --- Ajustes para Bordas da Grade --- */
+
+/* Remove as bordas do topo da primeira linha */
+.board-row:first-child .square { 
+    border-top: none; 
+}
+
+/* Remove as bordas da parte inferior da última linha */
+.board-row:last-child .square { 
+    border-bottom: none; 
+}
+
+/* Remove a borda esquerda do primeiro quadrado de cada linha */
+.board-row .square:first-child { 
+    border-left: none; 
+}
+
+/* Remove a borda direita do último quadrado de cada linha */
+.board-row .square:last-child { 
+    border-right: none; 
+}
+
+/* Efeitos de Interação */
+.square:hover {
+    background-color: #f7f9fc; /* Hover muito sutil */
+}
+
+.square:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #1abc9c50; /* Anel de foco sutil fora da borda */
+}
+
+/* Estilos para X e O para diferenciação visual */
+.square:contains('X') {
+    color: #c0392b; 
+}
+.square:contains('O') {
+    color: #2980b9; 
+}
+
+/* --- Estilos da Informação do Jogo e Histórico --- */
+
+.game-info {
+    padding: 10px;
+    width: 200px;
+    background-color: #f7f9fc;
+    border-radius: 10px;
+}
+
+.game-info ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.game-info li {
+    margin-bottom: 10px;
+}
+
+.game-info button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3
+    }
